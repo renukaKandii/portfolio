@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naga Renuka Kandi - Data Analyst & Cloud Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+            font-weight: 300;
+        }
+
+        .hero-content .description {
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.85;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #fff, #f8f9fa);
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-white {
+            background: #fff;
+        }
+
+        .section-gray {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-gray::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="300" fill="rgba(102,126,234,0.03)"/><circle cx="800" cy="800" r="400" fill="rgba(118,75,162,0.03)"/></svg>');
+            animation: floatBackground 20s ease-in-out infinite;
+        }
+
+        @keyframes floatBackground {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            33% { transform: translateX(20px) translateY(-15px); }
+            66% { transform: translateX(-15px) translateY(10px); }
+        }
+
+        /* Standardized Typography - Only Two Sizes */
+        
+        /* ALL TITLES AND HEADINGS - Same Size */
+        .section-title, h1, h2, h3, .hero-content h1, .post-content h3, .about-text h3, 
+        .skill-category h3, .project-content h3, .academic-content h3, .experience-content h3, 
+        .education-content h3, .achievement-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: #333;
+        }
+
+        /* ALL BODY TEXT - Same Size */
+        p, .post-description, .about-text p, .project-content p, .academic-content p, 
+        .experience-content p, .education-description p, .achievement-card p, .contact-content p,
+        .hero-content .subtitle, .hero-content .description, .experience-date, .academic-date, 
+        .post-date, .company-info, .course-info, .university, .location, .duration, .gpa,
+        .skill-tag, .tech-tag, .tag, .course-tag, .project-link, .contact-link, .tech-tags {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Override specific colors while keeping same size */
+        .section-title {
+            color: #333;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            z-index: 2;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content .description {
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+        }
+
+        .about-text h3, .skill-category h3, .achievement-card h3 {
+            color: #667eea;
+        }
+
+        .post-content h3, .experience-content h3 {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .experience-date, .academic-date {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.08);
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .company-info, .course-info {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .university {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .gpa {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #e9ecef, #f8f9fa);
+            color: #495057;
+            padding: 0.6rem 1rem;
+            border-radius: 25px;
+            font-weight: 500;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag, .tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .course-tag {
+            background: rgba(102, 126, 234, 0.08);
+            color: #667eea;
+            padding: 0.25rem 0.6rem;
+            border-radius: 10px;
+            font-weight: 500;
+            border: 1px solid rgba(102, 126, 234, 0.15);
+        }
+
+        .project-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-link {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .tech-tags {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-placeholder {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .about-placeholder:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .about-text h3 {
+            color: #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(102, 126, 234, 0.1) 0%, rgba(102, 126, 234, 0.2) 100%);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #e9ecef, #f8f9fa);
+            padding: 0.6rem 1rem;
+            border-radius: 25px;
+            color: #495057;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Specific color overrides for headings */
+        .post-content h3, .experience-content h3 {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .achievement-card h3 {
+            color: #667eea;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.12);
+        }
+
+        .project-image {
+            height: 100px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-content h3 {
+            color: #333;
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+        }
+
+        .project-content p {
+            margin-bottom: 2rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 9;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .project-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+            transform: translateX(3px);
+        }
+
+        /* Experience Section - Simplified Timeline */
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 1.5rem auto;
+            padding: 1rem 0;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 2rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+
+        .experience-item {
+            position: relative;
+            margin: 1.2rem 0;
+            padding-left: 4rem;
+            background: white;
+            padding: 1rem 1rem 1rem 4rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.08);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 1rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            box-shadow: 0 0 0 3px white, 0 0 0 5px rgba(102, 126, 234, 0.1);
+        }
+
+        .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.1);
+        }
+
+        .experience-date {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.08);
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-content h3 {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .company-info {
+            color: #667eea;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .experience-content p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        /* Education Section - New Card Style */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        .education-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .education-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.12);
+        }
+
+        .education-header {
+            background: linear-gradient(135deg, #f8f9ff, #f0f4ff);
+            padding: 1.2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .education-icon {
+            margin-bottom: 0.6rem;
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.2));
+        }
+
+        .education-level {
+            color: #667eea;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .education-content {
+            padding: 1.5rem 1.8rem;
+        }
+
+        .education-content h3 {
+            color: #333;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .university {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .location {
+            color: #888;
+            font-size: 0.75rem;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .location::before {
+            content: '📍';
+            margin-right: 0.4rem;
+            font-size: 0.8rem;
+        }
+
+        .duration {
+            color: #666;
+            font-size: 0.75rem;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .duration::before {
+            content: '📅';
+            margin-right: 0.4rem;
+            font-size: 0.8rem;
+        }
+
+        .gpa {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .education-description p {
+            margin-bottom: 1rem;
+        }
+
+        .key-courses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .course-tag {
+            background: rgba(102, 126, 234, 0.08);
+            color: #667eea;
+            padding: 0.25rem 0.6rem;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.15);
+        }
+
+        .course-tag:hover {
+            background: rgba(102, 126, 234, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .masters .education-header {
+            background: linear-gradient(135deg, #fff7e6, #fff2d6);
+        }
+
+        .masters .education-level {
+            background: rgba(255, 193, 7, 0.15);
+            color: #e67e22;
+        }
+
+        .bachelors .education-header {
+            background: linear-gradient(135deg, #e8f5e8, #d4f1d4);
+        }
+
+        .bachelors .education-level {
+            background: rgba(40, 167, 69, 0.15);
+            color: #28a745;
+        }
+
+        /* Academic Projects Timeline Section */
+        .academic-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 1.5rem auto;
+            padding: 1rem 0;
+        }
+
+        .academic-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+
+        .academic-item {
+            position: relative;
+            margin: 1.2rem 0;
+            width: 38%;
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.08);
+        }
+
+        .academic-item::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            box-shadow: 0 0 0 3px white, 0 0 0 5px rgba(102, 126, 234, 0.1);
+        }
+
+        .academic-item.left {
+            left: 6%;
+        }
+
+        .academic-item.left::before {
+            right: -18px;
+        }
+
+        .academic-item.right {
+            left: 56%;
+        }
+
+        .academic-item.right::before {
+            left: -18px;
+        }
+
+        .academic-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.1);
+        }
+
+        .academic-date {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.08);
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .academic-content h3 {
+            color: #333;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .course-info {
+            color: #667eea;
+            font-size: 0.65rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+
+        .academic-content p {
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 0.6rem;
+            font-size: 0.75rem;
+        }
+
+        .tech-tags {
+            color: #667eea;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .achievement-icon {
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .achievement-card h3 {
+            color: #667eea;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .achievement-card p {
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .contact-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.08);
+        }
+
+        .contact-link:hover {
+            color: #764ba2;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #333, #444);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-links {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid, .projects-grid, .achievements-grid, .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-timeline::before {
+                left: 2rem;
+            }
+
+            .experience-item {
+                padding-left: 4rem;
+            }
+
+            .experience-item::before {
+                left: -6px;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .academic-timeline::before {
+                left: 2rem;
+            }
+
+            .academic-item {
+                width: calc(100% - 4rem);
+                left: 2rem !important;
+            }
+
+            .academic-item::before {
+                left: -31px !important;
+            }
+
+            .academic-date {
+                position: static !important;
+                display: inline-block;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                min-width: auto;
+            }
+
+            .timeline-container {
+                padding: 1rem 0;
+            }
+
+            .post-content {
+                padding: 1rem 1.5rem;
+            }
+
+            .post-header {
+                padding: 1rem 1.5rem 0;
+            }
+
+            .post-footer {
+                padding: 0 1.5rem 1rem;
+            }
+
+            .company-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .highlight-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animation delays for staggered effect */
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.7s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Renuka Kandi</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Portfolio</a></li>
+                <li><a href="#academic">Academic</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Naga Renuka Kandi</h1>
+                <p class="subtitle">Data Analyst & Cloud Engineer</p>
+                <p class="description">
+                    Turning complex data into real-world impact with 2+ years of experience across data pipelines, cloud platforms, and AI-driven solutions. 
+                    Skilled in AWS, Python, and machine learning, with a track record of building scalable systems that empower smarter decisions and business growth.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#projects" class="btn btn-secondary">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-white">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-placeholder">RK</div>
+                </div>
+                <div class="about-text">
+                    <h3>Driven Data Strategist | Cloud Engineer | AI Enthusiast</h3>
+                    <p>
+                        
+                        I’m Naga Renuka Kandi — a data analyst and cloud engineer with a Master’s in Analytics from Northeastern University and over 2 years of hands-on experience, including at JPMorgan Chase. I thrive on simplifying complex data problems into clean, scalable, and efficient solutions using tools like AWS, Python, and machine learning.
+                    </p>   
+                    <p>My work spans the full data lifecycle — from building automated ETL pipelines and deploying ML models, to crafting cloud-native architectures that deliver real business impact. I’ve led projects, collaborated across teams, and built systems that consistently deliver 97%+ model accuracy.
+                       </p><p><span class="highlight">If it’s data-driven, I’m there — transforming insights into actions, and actions into outcomes</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Data Science & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Statistical Analysis</span>
+                        <span class="skill-tag">Predictive Modeling</span>
+                        <span class="skill-tag">A/B Testing</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">EC2</span>
+                        <span class="skill-tag">S3</span>
+                        <span class="skill-tag">SageMaker</span>
+                        <span class="skill-tag">Lambda</span>
+                        <span class="skill-tag">Step Functions</span>
+                        <span class="skill-tag">Glue</span>
+                        <span class="skill-tag">CloudFormation</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Database & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">R Programming</span>
+                        <span class="skill-tag">R Markdown</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Databricks</span>
+                        <span class="skill-tag">Apache Spark</span>
+                        <span class="skill-tag">ETL Pipelines</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Visualization</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Plotly</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Dashboard Design</span>
+                        <span class="skill-tag">Data Storytelling</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Development & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git/GitHub</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">JIRA</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">Cypress</span>
+                        <span class="skill-tag">C#</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Professional Journey</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-date">July 2021 - Aug 2023</div>
+                    <div class="experience-content">
+                        <h3>Software Engineer I</h3>
+                        <div class="company-info">JPMorgan Chase & Co.</div>
+                        <p>Began as a Software Engineer Intern and transitioned to a full-time role, focusing on data workflows, SQL optimization, and cloud migration. Played a key role in automating internal processes, enhancing data pipeline efficiency, and ensuring high data reliability across teams. Resolved 30+ critical system issues and contributed to a successful shift from on-prem systems to AWS-based cloud infrastructure.</p>
+                        <div class="tech-tags">Technologies: SQL, AWS (EC2, S3), Python, React JS, Data Validation, Cloud Migration, DevOps Basics, JIRA, Agile Methodologies</div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-date">Dec 2020 - Feb 2021</div>
+                    <div class="experience-content">
+                        <h3>IoT & Robotics Intern</h3>
+                        <div class="company-info">Verzeo Education • Remote</div>
+                        <p>Completed comprehensive IoT and Robotics program with hands-on projects including obstacle-avoiding robot, smart home automation system, and mobile-controlled IoT devices. Shortlisted for outstanding innovation in IoT projects.</p>
+                        <div class="tech-tags">Technologies: Arduino, IoT Development, IFTTT Integration, Sensor Programming, Automation</div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-date">Aug 2020 - Sep 2020</div>
+                    <div class="experience-content">
+                        <h3>Ethical Hacking Intern</h3>
+                        <div class="company-info">Internshala • Remote</div>
+                        <p>Intensive cybersecurity training covering penetration testing, vulnerability assessment, and ethical hacking fundamentals. Gained expertise in web application security and network infrastructure protection.</p>
+                        <div class="tech-tags">Technologies: Ethical Hacking, Cybersecurity, Penetration Testing, Security Analysis, Risk Assessment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section-white">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-card masters">
+                    <div class="education-header">
+                        <div class="education-icon">🎓</div>
+                        <div class="education-level">Master's Degree</div>
+                    </div>
+                    <div class="education-content">
+                        <h3>Master of Professional Studies, Analytics</h3>
+                        <div class="university">Northeastern University</div>
+                        <div class="location">Boston, Massachusetts</div>
+                        <div class="duration">September 2023 - April 2025</div>
+                        <div class="gpa">GPA: 3.91/4.0</div>
+                        <div class="education-description">
+                            <p>Advanced studies in analytics with focus on predictive modeling, data mining, enterprise analytics, and AI applications. Working on real-world capstone projects including Big Sky Franchise Group analytics.</p>
+                            <div class="key-courses">
+                                <span class="course-tag">Predictive Modeling</span>
+                                <span class="course-tag">Data Mining</span>
+                                <span class="course-tag">Enterprise Analytics</span>
+                                <span class="course-tag">AI Applications</span>
+                                <span class="course-tag">Data Analytics</span>
+                                <span class="course-tag">Visualization</span>
+                                <span class="course-tag">Machine Learning</span>
+                                <span class="course-tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-card bachelors">
+                    <div class="education-header">
+                        <div class="education-icon">🔧</div>
+                        <div class="education-level">Bachelor's Degree</div>
+                    </div>
+                    <div class="education-content">
+                        <h3>Bachelor of Electrical and Electronics Engineering</h3>
+                        <div class="university">VNR Vignana Jyothi Institute of Engineering and Technology</div>
+                        <div class="location">Hyderabad, India</div>
+                        <div class="duration">July 2018 - July 2022</div>
+                        <div class="gpa">CGPA: 7.98/10</div>
+                        <div class="education-description">
+                            <p>Focused on electronics, automation, and emerging technologies. Completed major project on "ANN Controlled Power Converters for Electric Vehicles" and participated in various technical competitions.</p>
+                            <div class="key-courses">
+                                <span class="course-tag">Power Electronics</span>
+                                <span class="course-tag">IoT Systems</span>
+                                <span class="course-tag">Automation</span>
+                                <span class="course-tag">Neural Networks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">OptiPrompt</div>
+                    <div class="project-content">
+                        <h3>OptiPrompt</h3>
+                        <p>
+                            An AI-powered prompt optimization tool built with Gemini API and Streamlit. </p><p>
+                            OptiPrompt allows users to evaluate prompt quality in real time, compare LLM responses side by side, and optimize token usage for clearer, more efficient AI interactions. 
+                            </p><p>Ideal for developers, researchers, and prompt engineers aiming to enhance LLM effectiveness.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">Gemini API</span>
+                            <span class="tech-tag">NLP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/renukaKandii/projects2025" class="project-link">GitHub →</a>
+                            <a href="https://projects2025-v5eecvz3nbxnmc3agtdjmb.streamlit.app/" class="project-link">Live Demo →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">ResearchSphere</div>
+                    <div class="project-content">
+                        <h3>ResearchSphere</h3>
+                        <p>
+                            An AI-powered research assistant built to simplify how researchers explore, analyze, and visualize information.
+                        </p>
+                        <p>ResearchSphere leverages Perplexity’s Sonar API to generate smart, context-aware insights, while offering a seamless and interactive UI powered by Streamlit Cloud.</p>
+                        <p>Ideal for research teams, students, and data professionals, the platform transforms scattered web data into structured summaries, question-driven exploration, and clean visual outputs — all in one place.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Data Analytics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/renukaKandii/research-sphere" class="project-link">GitHub →</a>
+                            <a href="https://research-sphere.streamlit.app" class="project-link">Live Demo →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">Big Sky Franchise</div>
+                    <div class="project-content">
+                        <h3>Big Sky Franchise (Capstone)</h3>
+                        <p>
+                            <strong>Northeastern University Capstone Project</strong><br>
+                            Led a team of five to develop predictive models forecasting lead conversion and deal success across 30+ franchise locations. </p>
+                        <p>Designed and deployed AI-powered Tableau dashboards integrating real-time insights, optimal follow-up timing, and lead prioritization.</p>
+                        <p>Project focused on boosting franchise growth and improving operational consistency using advanced analytics and geospatial pattern recognition.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Team Leadership</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">Iowa Liquor Sales</div>
+                    <div class="project-content">
+                        <h3>Iowa Liquor Sales Prediction Analysis</h3>
+                        <p>
+                            <strong>October 2024</strong><br>
+                            Built predictive models (Neural Networks, Decision Trees) to forecast sales with 94% R², using feature engineering and
+                            visualizations to uncover key trends. </p>
+                            <p>Analyzed 1.87M records, improving revenue predictions and reducing inventory waste
+                            by 20% while enabling optimized pricing through actionable insights.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Neural Networks</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Decision Trees</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Projects Section -->
+    <section id="academic" class="section-white">
+        <div class="container">
+            <h2 class="section-title">Academic Projects Timeline</h2>
+            <div class="academic-timeline">
+                <div class="academic-item left">
+                    <div class="academic-date">Bachelor's Project</div>
+                    <div class="academic-content">
+                        <h3>ANN Power Converters (Bachelor's Major)</h3>
+                        <div class="course-info">Final Year Project - Team of 4</div>
+                        <p>Developed intelligent power conversion systems using Artificial Neural Networks to optimize multilevel inverter performance for electric vehicle applications. Achieved 23% THD reduction in 5-level and 2.5% in 7-level inverters using ANN-optimized switching angles.</p>
+                        <div class="tech-tags">Technologies: Neural Networks, MATLAB/Simulink, Power Electronics, Team Leadership</div>
+                    </div>
+                </div>
+
+                <div class="academic-item right">
+                    <div class="academic-date">June 2024</div>
+                    <div class="academic-content">
+                        <h3>Supply Chain Analysis</h3>
+                        <div class="course-info">Data Management Course Project</div>
+                        <p>Analyzed 180,519+ supply chain records to predict late deliveries using advanced machine learning. Achieved 97.58% accuracy with Gradient Boosting models and provided actionable recommendations to optimize shipment practices and reduce operational costs.</p>
+                        <div class="tech-tags">Technologies: Python, XGBoost, LightGBM, Feature Engineering, Supply Chain Analytics</div>
+                    </div>
+                </div>
+
+                <div class="academic-item left">
+                    <div class="academic-date">May 2024</div>
+                    <div class="academic-content">
+                        <h3>NatureCulture Analytics</h3>
+                        <div class="course-info">Statistical Methods & Environmental Analytics</div>
+                        <p>Performed comprehensive statistical analysis on environmental and cultural datasets to identify conservation priorities and cultural preservation strategies. Applied advanced statistical methods including regression analysis, hypothesis testing, and multivariate analysis.</p>
+                        <div class="tech-tags">Technologies: R, Statistical Analysis, Data Visualization, Environmental Data</div>
+                    </div>
+                </div>
+
+                <div class="academic-item right">
+                    <div class="academic-date">March 2024</div>
+                    <div class="academic-content">
+                        <h3>NYC Crime Analysis</h3>
+                        <div class="course-info">Data Analytics & Visualization Project</div>
+                        <p>Conducted comprehensive analysis of NYC crime data to identify patterns, trends, and hotspots. Implemented data preprocessing, exploratory data analysis, and created interactive visualizations to support data-driven policy recommendations.</p>
+                        <div class="tech-tags">Technologies: Python, Pandas, Matplotlib, Seaborn, Geospatial Analysis</div>
+                    </div>
+                </div>
+
+                <div class="academic-item left">
+                    <div class="academic-date">December 2023</div>
+                    <div class="academic-content">
+                        <h3>Real Estate Analysis</h3>
+                        <div class="course-info">Predictive Analytics Project</div>
+                        <p>Developed predictive models for real estate price forecasting using multiple regression techniques and feature engineering. Analyzed market trends and property characteristics to build accurate pricing models for different property types and locations.</p>
+                        <div class="tech-tags">Technologies: Python, Scikit-learn, Regression Analysis, Feature Engineering</div>
+                    </div>
+                </div>
+
+                <div class="academic-item right">
+                    <div class="academic-date">October 2023</div>
+                    <div class="academic-content">
+                        <h3>Pick My Device Database</h3>
+                        <div class="course-info">Database Management System Project</div>
+                        <p>Designed and implemented a comprehensive database management system for device comparison and selection. Optimized query performance, implemented modern data architecture principles, and created user-friendly interfaces for device recommendations.</p>
+                        <div class="tech-tags">Technologies: SQL, Database Design, Performance Optimization, Data Modeling</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Awards & Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏆</div>
+                    <h3>Academic Excellence</h3>
+                    <p><strong>Times NIE Think and Learn Challenge (2015-2016)</strong><br>
+                    Qualified for city finals in a competitive academic challenge, demonstrating analytical thinking and problem-solving skills.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">🥉</div>
+                    <h3>Mathematics Olympiad</h3>
+                    <p><strong>International Mathematics Olympiad (IMO)</strong><br>
+                    Earned bronze medal and multiple certificates for consistent high performance in mathematics competitions.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">⭐</div>
+                    <h3>Professional Recognition</h3>
+                    <p><strong>JPMorgan Chase SEP Recognition</strong><br>
+                    Recognized by team manager for outstanding performance and taking full responsibility for UI Testing and UI Issues resolution.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">🔬</div>
+                    <h3>Research Excellence</h3>
+                    <p><strong>IoT Project Recognition</strong><br>
+                    Received recognition for outstanding project work in Internet of Things and Robotics, showcasing innovation in automation systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-white">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <p>
+                    I'm always interested in discussing new opportunities, collaborating on data projects, 
+                    or connecting with fellow data professionals. Let's build something amazing together!
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:knrenu4601@gmail.com" class="contact-link">
+                        📧 knrenu4601@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/naga-renuka-kandi/" class="contact-link" target="_blank">
+                        💼 LinkedIn Profile
+                    </a>
+                    <a href="tel:+17746368864" class="contact-link">
+                        📱 (774) 636-8864
+                    </a>
+                    <a href="#" class="contact-link" target="_blank">
+                        🔗 GitHub Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Naga Renuka Kandi. Crafted with passion for data and innovation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Enhanced scroll animation for timeline items
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate');
+                    }, index * 200);
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            timelineObserver.observe(item);
+        });
+
+        // General intersection observer for animations
+        const generalObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe elements for scroll animations
+        document.querySelectorAll('.skill-category, .project-card, .achievement-card, .academic-item, .education-card, .experience-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            generalObserver.observe(el);
+        });
+
+        // Add hover effects for interactive elements
+        document.querySelectorAll('.experience-item, .education-card, .project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 25px rgba(102, 126, 234, 0.12)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 3px 12px rgba(0, 0, 0, 0.06)';
+            });
+        });
+
+        // Add click animation for tags
+        document.querySelectorAll('.tag, .skill-tag').forEach(tag => {
+            tag.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-2px) scale(1.05)';
+                }, 100);
+            });
+        });
+
+        // Timeline marker animation on scroll - removed since no longer using complex timeline
+        // Add smooth reveal animation for sections
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: linear-gradient(45deg, #667eea, #764ba2);
+                border-radius: 50%;
+                pointer-events: none;
+                opacity: 0.3;
+                animation: floatParticle 6s linear infinite;
+                left: ${Math.random() * 100}%;
+                top: 100%;
+                z-index: 1;
+            `;
+            
+            const style = document.createElement('style');
+            if (!document.getElementById('particle-style')) {
+                style.id = 'particle-style';
+                style.textContent = `
+                    @keyframes floatParticle {
+                        0% {
+                            transform: translateY(0) rotate(0deg);
+                            opacity: 0;
+                        }
+                        10% {
+                            opacity: 0.3;
+                        }
+                        90% {
+                            opacity: 0.1;
+                        }
+                        100% {
+                            transform: translateY(-100vh) rotate(360deg);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            const graySection = document.querySelector('.section-gray');
+            if (graySection) {
+                graySection.appendChild(particle);
+                
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.remove();
+                    }
+                }, 6000);
+            }
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+
+        // Add typing effect for company names
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect when elements come into view - removed since simplified
+        // Add stagger effect to skill tags
+        document.querySelectorAll('.skill-category').forEach(category => {
+            const tags = category.querySelectorAll('.skill-tag');
+            tags.forEach((tag, index) => {
+                tag.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        // Ensure academic timeline is visible
+        setTimeout(() => {
+            document.querySelectorAll('.academic-item').forEach(item => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            });
+        }, 100);
+
+        // Add smooth reveal animation for sections
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Initialize section animations
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0.95';
+            section.style.transform = 'translateY(0)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease';
+        });
+
+        // Set initial opacity
+        document.body.style.opacity = '0.95';
+    </script>
+</body>
+</html>
